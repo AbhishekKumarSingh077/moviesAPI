@@ -39,7 +39,7 @@ app.get("/api/movies", (req, res) => {
         db.getAllMovies(req.query.page, req.query.perPage, req.query.title).then(function (data) {
             res.status(200).json(data);
         }).catch(function (err) {
-            res.status(404).json({ message: "Requested Content not found" });
+            res.status(500).json({ message: err.message });
         })
     }
 })
